@@ -1,0 +1,27 @@
+{
+  "name": "charthop-ad-ldap",
+  "version": "1.0.0",
+  "author": {
+    "name": "ChartHop",
+    "email": "support@charthop.com",
+    "url": "https://www.charthop.com"
+  },
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "ldapjs": "^1.0.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "test": "jest --watchAll"
+  }
+}
