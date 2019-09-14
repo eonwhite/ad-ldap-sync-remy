@@ -49,12 +49,30 @@ module.exports.FIELDS = [
   {
     label: "Last Name",
     ldap: "sn",
-    charthop: "name.last"
+    charthop: "name.last",
+    transform: function(value) {
+      if (value === "Frangopoulos") {
+        return "FERRARI";
+      }
+      return value.toUpperCase();
+    }
   },
   {
     label: "Department",
     ldap: "department",
-    charthop: "department.name"
+    charthop: "department.name",
+    charthopExtraFields: "team.name",
+    transform: function(value, charthopJob) {
+      // if a member of two or more teams, use the department name
+      if (
+        !charthopJob["team.name"] ||
+        charthopJob["team.name"].indexOf(",") > -1
+      ) {
+        return charthopJob["department.name"];
+      } else {
+        return charthopJob["team.name"];
+      }
+    }
   },
   {
     label: "Office Name",
